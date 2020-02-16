@@ -1,0 +1,31 @@
+{
+  "name": "mds-statechart",
+  "version": "0.0.1",
+  "description": "Statechart for MDS",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/twelch/mds-statechart.git"
+  },
+  "keywords": [
+    "mds",
+    "state"
+  ],
+  "author": "Tim Welch",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/twelch/mds-statechart/issues"
+  },
+  "homepage": "https://github.com/twelch/mds-statechart#readme",
+  "dependencies": {
+    "npx": "10.2.2",
+    "xstate": "4.7.8"
+  },
+  "devDependencies": {
+    "typescript": "3.7.5"
+  }
+}
