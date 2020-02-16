@@ -1,13 +1,13 @@
 import { interpret } from "xstate";
-import { MmMachine } from "./types";
+import { MdsMachine } from "./types";
 
-const mdsService = interpret(MmMachine).start();
+const mdsService = interpret(MdsMachine).start();
 
-mdsService.send("REGISTER");
+mdsService.send("register");
 console.log(mdsService.state.value);
-mdsService.send("PROVIDER_DROP_OFF");
+mdsService.send("provider_drop_off");
 console.log(mdsService.state.value);
-mdsService.send("TRIP_START");
+mdsService.send("trip_start");
 console.log(mdsService.state.value);
-mdsService.send("TRIP_END");
+mdsService.send("trip_end");
 console.log(mdsService.state.value);

@@ -15,18 +15,18 @@ export interface MachineSchema {
 
 // The events that the machine handles
 export type MachineEvent =
-  | { type: "REGISTER" }
-  | { type: "DEREGISTER" }
-  | { type: "PROVIDER_PICK_UP" }
-  | { type: "PROVIDER_DROP_OFF" }
-  | { type: "SERVICE_START" }
-  | { type: "SERVICE_END" }
-  | { type: "RESERVE" }
-  | { type: "CANCEL_RESERVATION" }
-  | { type: "TRIP_START" }
-  | { type: "TRIP_END" }
-  | { type: "TRIP_ENTER" }
-  | { type: "TRIP_LEAVE" };
+  | { type: "register" }
+  | { type: "deregister" }
+  | { type: "provider_pick_up" }
+  | { type: "provider_drop_off" }
+  | { type: "service_start" }
+  | { type: "service_end" }
+  | { type: "reserve" }
+  | { type: "cancel_reservation" }
+  | { type: "trip_start" }
+  | { type: "trip_end" }
+  | { type: "trip_enter" }
+  | { type: "trip_leave" };
 
 // The context (extended state) of the machine
 export interface MachineContext {
@@ -40,49 +40,49 @@ export const MdsMachine = Machine<MachineContext, MachineSchema, MachineEvent>({
   states: {
     inactive: {
       on: {
-        REGISTER: "removed"
+        register: "removed"
       }
     },
     removed: {
       on: {
-        DEREGISTER: "inactive",
-        TRIP_ENTER: "trip",
-        PROVIDER_DROP_OFF: "available"
+        deregister: "inactive",
+        trip_enter: "trip",
+        provider_drop_off: "available"
       }
     },
     available: {
       on: {
-        SERVICE_END: "unavailable",
-        DEREGISTER: "inactive",
-        RESERVE: "reserved",
-        TRIP_START: "trip",
-        PROVIDER_PICK_UP: "removed"
+        service_end: "unavailable",
+        deregister: "inactive",
+        reserve: "reserved",
+        trip_start: "trip",
+        provider_pick_up: "removed"
       }
     },
     elsewhere: {
       on: {
-        DEREGISTER: "inactive",
-        PROVIDER_PICK_UP: "removed",
-        TRIP_ENTER: "trip"
+        deregister: "inactive",
+        provider_pick_up: "removed",
+        trip_enter: "trip"
       }
     },
     trip: {
       on: {
-        TRIP_LEAVE: "elsewhere",
-        TRIP_END: "available"
+        trip_leave: "elsewhere",
+        trip_end: "available"
       }
     },
     reserved: {
       on: {
-        CANCEL_RESERVATION: "available",
-        TRIP_START: "trip"
+        cancel_reservation: "available",
+        trip_start: "trip"
       }
     },
     unavailable: {
       on: {
-        SERVICE_START: "available",
-        PROVIDER_PICK_UP: "removed",
-        DEREGISTER: "inactive"
+        service_start: "available",
+        provider_pick_up: "removed",
+        deregister: "inactive"
       }
     }
   }
