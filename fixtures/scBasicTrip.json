@@ -1,0 +1,7 @@
+[
+  { "type": "register" },
+  { "type": "provider_drop_off" },
+  { "type": "reserve" },
+  { "type": "trip_start" },
+  { "type": "trip_end" }
+]

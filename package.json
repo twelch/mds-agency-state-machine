@@ -26,10 +26,11 @@
     "xstate": "4.7.8"
   },
   "devDependencies": {
-    "@types/mocha": "7.0.1",
-    "mocha": "7.0.1",
+    "@types/mocha": "5.2.7",
+    "mocha": "6.2.1",
     "ts-mocha": "6.0.0",
     "typescript": "3.7.5",
-    "unit.js": "2.1.1"
+    "unit.js": "2.1.1",
+    "mds-core": "git://github.com/openmobilityfoundation/mds-core.git"
   }
 }

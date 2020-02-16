@@ -35,8 +35,9 @@ export interface MachineContext {
 
 // The full xState machine
 export const MdsMachine = Machine<MachineContext, MachineSchema, MachineEvent>({
-  id: "fetch",
+  id: "mds",
   initial: "inactive",
+  strict: true,
   states: {
     inactive: {
       on: {
