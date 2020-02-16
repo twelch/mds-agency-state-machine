@@ -1,2 +1,3 @@
-# mds-statechart
-Demonstration of MDS Agency state machine through statechart constructs
+# mds-fsm
+
+Finite state machine for the Mobility Data Specification Agency API
