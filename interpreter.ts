@@ -8,7 +8,7 @@ import { State, StateMachine, Interpreter, interpret } from "xstate";
 
 export class MdsInterpreter {
   // Use custom types
-  private _currentState: State<
+  private _state: State<
     MdsMachineContext,
     MdsMachineEvent,
     MdsMachineSchema
@@ -16,23 +16,23 @@ export class MdsInterpreter {
   machine: StateMachine<MdsMachineContext, MdsMachineSchema, MdsMachineEvent>;
   constructor() {
     this.machine = MdsMachine;
-    this._currentState = this.machine.initialState;
+    this._state = this.machine.initialState;
   }
 
-  get currentState(): State<
+  get state(): State<
     MdsMachineContext,
     MdsMachineEvent,
     MdsMachineSchema
   > {
-    return this._currentState;
+    return this._state;
   }
 
   batch(events: MdsMachineEvent[]) {
-    console.log(events);
+    events.forEach(e => this.send(e))
   }
 
   send(event: MdsMachineEvent) {
-    // Remember: machine.transition() is a pure function
-    this._currentState = this.machine.transition(this._currentState, event);
+    this._state = this.machine.transition(this._state, event);
+    if (! this._state.changed) throw new Error(`Invalid transition: ${this._state.value}`)
   }
 }
