@@ -4,7 +4,7 @@ import {
   MdsMachineSchema,
   MdsMachineEvent
 } from "./types";
-import { State, StateMachine, Interpreter, interpret } from "xstate";
+import { State, StateMachine } from "xstate";
 
 export class MdsInterpreter {
   // Use custom types

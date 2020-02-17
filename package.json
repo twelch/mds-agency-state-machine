@@ -3,11 +3,11 @@
   "version": "0.0.1",
   "description": "State machine for MDS",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "yarn tsc",
     "build:watch": "yarn tsc --w",
-    "test": "ts-mocha --project tsconfig.json",
-    "start": "node dist/index.js"
+    "test": "ts-mocha --project tsconfig.json"
   },
   "repository": {
     "type": "git",
