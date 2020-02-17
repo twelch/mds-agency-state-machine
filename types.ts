@@ -1,7 +1,7 @@
 import { Machine } from "xstate";
 
-// The hierarchical (recursive) schema for the states
-export interface MachineSchema {
+// States
+export interface MdsMachineSchema {
   states: {
     inactive: {};
     removed: {};
@@ -13,8 +13,8 @@ export interface MachineSchema {
   };
 }
 
-// The events that the machine handles
-export type MachineEvent =
+// Events
+export type MdsMachineEvent =
   | { type: "register" }
   | { type: "deregister" }
   | { type: "provider_pick_up" }
@@ -28,13 +28,15 @@ export type MachineEvent =
   | { type: "trip_enter" }
   | { type: "trip_leave" };
 
-// The context (extended state) of the machine
-export interface MachineContext {
-  elapsed: number;
-}
+// Context
+export interface MdsMachineContext {}
 
 // The full xState machine
-export const MdsMachine = Machine<MachineContext, MachineSchema, MachineEvent>({
+export const MdsMachine = Machine<
+  MdsMachineContext,
+  MdsMachineSchema,
+  MdsMachineEvent
+>({
   id: "mds",
   initial: "inactive",
   strict: true,

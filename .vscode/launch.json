@@ -1,0 +1,25 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Current TS Mocha File",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceRoot}/node_modules/.bin/_mocha",
+      "args": [
+        "-r",
+        "ts-node/register",
+        "-r",
+        "tsconfig-paths/register",
+        "--timeout",
+        "999999",
+        "--colors",
+        "--recursive",
+        "'tests/**/*.ts'"
+      ],
+      "cwd": "${workspaceRoot}",
+      "protocol": "inspector",
+      "sourceMaps": true
+    }
+  ]
+}
