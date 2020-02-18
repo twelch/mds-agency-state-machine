@@ -1,6 +1,5 @@
 import test from "unit.js";
-import { interpret } from "xstate";
-import { MdsMachine, MdsMachineEvent, MdsInterpreter } from "../index";
+import { MdsMachineEvent, MdsInterpreter } from "../index";
 
 import scooterGoodJSON from "../fixtures/scBasicTrip.json";
 let scooterGood: MdsMachineEvent[] = <MdsMachineEvent[]>scooterGoodJSON;
@@ -23,8 +22,8 @@ describe("Test scooter ride", () => {
   });
 
   it("Verifies registers to removed", done => {
-    const mdsService = interpret(MdsMachine).start();
-    mdsService.send("register");
+    const mdsService = new MdsInterpreter();
+    mdsService.send({ type: "register" });
     test.value(mdsService.state.value).is("removed");
     done();
   });
