@@ -1,6 +1,6 @@
 import test from "unit.js";
 import { interpret } from "xstate";
-import { MdsMachine, MdsMachineEvent, MdsInterpreter } from "../src/index";
+import { MdsMachine, MdsMachineEvent, MdsInterpreter } from "../index";
 
 import scooterGoodJSON from "../fixtures/scBasicTrip.json";
 let scooterGood: MdsMachineEvent[] = <MdsMachineEvent[]>scooterGoodJSON;
